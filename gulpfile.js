@@ -1,6 +1,3 @@
-/**
- * Created by Dmytro on 3/27/2016.
- */
 var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     sass = require('gulp-sass'),
@@ -10,12 +7,17 @@ var gulp = require('gulp'),
 /* pathConfig*/
 var browserDir = './dist',
     sassWatchPath = './src/css/**/*.scss',
-    jsWatchPath = './src/**/*.js',
+    ejsWatchPath = './src/views/**/*.ejs',
     htmlWatchPath = './dist/**/*.html';
 /**/
 
-gulp.task('js', function () {
+var ejs = require('gulp-ejs');
 
+//Todo: render view to dist with extension .html
+gulp.task('ejs', function(){
+    return gulp.src('./src/views/components/**/*.ejs')
+        .pipe(ejs({}, {}, {ext:'.html'}))
+        .pipe(gulp.dest('dist/'))
 });
 
 gulp.task('browser-sync', function () {
@@ -27,7 +29,7 @@ gulp.task('browser-sync', function () {
 });
 
 gulp.task('sass', function () {
-    return gulp.src(sassWatchPath)
+    return gulp.src('src/css/main.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
@@ -39,9 +41,9 @@ gulp.task('sass', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(jsWatchPath, ['js']);
+    gulp.watch(ejsWatchPath, ['ejs']);
     gulp.watch(sassWatchPath, ['sass']).on('change', browserSync.reload);
     gulp.watch(htmlWatchPath).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['js', 'sass', 'watch', 'browser-sync']);
+gulp.task('default', ['ejs', 'sass', 'watch', 'browser-sync']);

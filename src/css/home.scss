@@ -1,0 +1,28 @@
+/* Setting */
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #555;
+  background: #f6f6f6;
+
+  p {
+    margin-bottom: 8px;
+  }
+}
+
+a,
+a:focus {
+  color: $blue;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: $light-blue;
+  text-decoration: none;
+}

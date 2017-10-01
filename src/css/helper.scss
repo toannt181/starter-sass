@@ -1,0 +1,25 @@
+@mixin bg-img($url) {
+  background: url($url) center;
+  background-size: cover;
+}
+
+@mixin line($color) {
+  display: inline-block;
+  padding: 4px 16px;
+  background: $color;
+  border-radius: 30px;
+  margin-bottom: 8px;
+}
+
+@mixin button-effect-white($color) {
+  transition: 0.4s;
+
+  &:hover, &:active {
+    background: $color;
+    color: white;
+  }
+}
+
+@mixin box-shadow {
+  box-shadow: -2px -2px 8px rgba(0, 0, 0, 0.1), 4px 4px 8px rgba(0, 0, 0, 0.2);
+}

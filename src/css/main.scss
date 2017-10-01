@@ -1,7 +1,14 @@
-.test {
-  color: white;
-}
+/**
+Template: Starter Sass
+Author: Nguyen Trong Toan
+Date create: 9/2017
+Last Updated: 30/9/2017
 
-h1 {
-  color: blue;
-}
+Project: ???
+Date created: ???
+ */
+@import "color";
+@import "layout";
+@import "helper";
+@import "home";
+@import "responsive";
